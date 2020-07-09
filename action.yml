@@ -23,6 +23,6 @@ runs:
   image: 'Dockerfile'
   env:
     REGISTRY: ${{ inputs.registry }}
-    USERNAME: ${{ inputs.wusername }}
+    USERNAME: ${{ inputs.username }}
     PASSWORD: ${{ inputs.password }}
     IMAGE: ${{ inputs.image }}
