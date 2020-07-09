@@ -9,8 +9,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Test Docker login variable
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin docker.io
       - name: Docker exist action TRUE
         uses: ./
         id: exist
@@ -30,16 +28,16 @@ jobs:
       - name: Get the output TRUE
         run: |
           echo "Value is: ${{ steps.exist.outputs.image_exist }}."
-          if [[ ${{ steps.exist.outputs.image_exist }} ]]; then
-            exit 1
-          else
+          if (( ${{ steps.exist.outputs.image_exist }} )); then
             exit 0
+          else
+            exit 1
           fi
       - name: Get the output FALSE
         run: |
           echo "Value is: ${{ steps.dont_exist.outputs.image_exist }}."
-          if [[ ${{ steps.dont_exist.outputs.image_exist }} ]]; then
-            exit 0
-          else
+          if (( ${{ steps.dont_exist.outputs.image_exist }} )); then
             exit 1
+          else
+            exit 0
           fi

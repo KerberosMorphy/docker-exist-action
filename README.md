@@ -28,7 +28,7 @@ This action use the experimental feature of Docker CLI `docker manifest inspect`
 
 ### `image_exist`
 
-The value `0` if image exist, `1` if the image doesn't exist.
+The value `1` if image exist, `0` if the image doesn't exist.
 
 ## Example usage
 

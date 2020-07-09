@@ -17,7 +17,7 @@ inputs:
     required: true
 outputs:
   image_exist:
-    description: 'If image exist value is 0 else is 1'
+    description: 'If image exist value is 1 else is 0'
 runs:
   using: 'docker'
   image: 'Dockerfile'
