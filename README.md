@@ -40,7 +40,7 @@ jobs:
     steps:
       - name: Check if image exist
         id: is_image_exist
-        uses: tm-bverret/docker-exist-action@v1
+        uses: tm-bverret/docker-exist-action@v1.1.1
         with:
           registry: docker.io
           username: ${{ secrets.DOCKER_USERNAME }}
