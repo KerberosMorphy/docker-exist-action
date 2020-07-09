@@ -20,12 +20,22 @@ jobs:
         id: dont_exist
         with:
           registry: 'docker.io'
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          username: '${{ secrets.DOCKER_USERNAME }}'
+          password: '${{ secrets.DOCKER_PASSWORD }}'
           image: 'hello-world:fake_tag'
       - name: Get the output TRUE
         run: |
-          echo "Image exist: ${{ steps.exist.outputs.image_exist }}"
+          echo "Value is: ${{ steps.exist.outputs.image_exist }}."
+          if [[ "${{ steps.exist.outputs.image_exist }} ]]; then
+            exit 0
+          else
+            exit 1
+          fi
       - name: Get the output FALSE
         run: |
-          echo "Image don't exist: ${{ steps.dont_exist.outputs.image_exist }}"
+          echo "Value is: ${{ steps.dont_exist.outputs.image_exist }}."
+          if [[ "${{ steps.dont_exist.outputs.image_exist }} ]]; then
+            exit 1
+          else
+            exit 0
+          fi
