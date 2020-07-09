@@ -15,9 +15,6 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           image: 'hello-world:latest'
-      - name: Get the output TRUE
-        run: | 
-          echo "Image exist: ${{ steps.exist.outputs.image_exist }}"
       - name: Docker exist action FALSE
         uses: ./
         id: dont_exist
@@ -27,5 +24,8 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           image: 'hello-world:fake_tag'
       - name: Get the output TRUE
+        run: |
+          echo "Image exist: ${{ steps.exist.outputs.image_exist }}"
+      - name: Get the output FALSE
         run: |
           echo "Image don't exist: ${{ steps.dont_exist.outputs.image_exist }}"
