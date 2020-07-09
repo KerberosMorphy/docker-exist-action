@@ -12,16 +12,16 @@ jobs:
         id: exist
         with:
           registry: 'docker.io'
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
           image: 'hello-world:latest'
       - name: Docker exist action FALSE
         uses: ./
         id: dont_exist
         with:
           registry: 'docker.io'
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
           image: 'hello-world:fake_tag'
       - name: Get the output TRUE
         run: |
