@@ -32,9 +32,11 @@ The value `0` if image exist, `1` if the image doesn't exist.
 
 ## Example usage
 
+```yml
 uses: actions/docker-exist-action@v1
 with:
   registry: 'docker.io'
   username: ${{ secrets.DOCKER_USERNAME }}
   password: '${{ secrets.DOCKER_PASSWORD }}'
   image: ${{ secrets.DOCKER_USERNAME }}/my_image:tag'
+```
