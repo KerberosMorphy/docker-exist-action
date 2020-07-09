@@ -26,7 +26,7 @@ jobs:
       - name: Get the output TRUE
         run: |
           echo "Value is: ${{ steps.exist.outputs.image_exist }}."
-          if [[ "${{ steps.exist.outputs.image_exist }} ]]; then
+          if [[ ${{ steps.exist.outputs.image_exist }} ]]; then
             exit 0
           else
             exit 1
@@ -34,7 +34,7 @@ jobs:
       - name: Get the output FALSE
         run: |
           echo "Value is: ${{ steps.dont_exist.outputs.image_exist }}."
-          if [[ "${{ steps.dont_exist.outputs.image_exist }} ]]; then
+          if [[ ${{ steps.dont_exist.outputs.image_exist }} ]]; then
             exit 1
           else
             exit 0
