@@ -1,6 +1,7 @@
 # action.yml
 name: 'Docker exist action'
 description: 'Check if docker image exist'
+author: 'Benoit Verret <benoit.verret@toumoro.com'
 inputs:
   registry:
     description: 'Container Registry'
@@ -26,3 +27,6 @@ runs:
     USERNAME: ${{ inputs.username }}
     PASSWORD: ${{ inputs.password }}
     IMAGE: ${{ inputs.image }}
+branding:
+  icon:  'eye'
+  color: 'red'
