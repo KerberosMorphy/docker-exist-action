@@ -10,7 +10,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Docker exist action TRUE
-        uses: tm-bverret/docker-exist-action@v1
+        uses: tm-bverret/docker-exist-action@v1.1.2
         id: exist
         with:
           registry: 'docker.io'
@@ -18,7 +18,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           image: 'hello-world:latest'
       - name: Docker exist action FALSE
-        uses: tm-bverret/docker-exist-action@v1
+        uses: tm-bverret/docker-exist-action@v1.1.2
         id: dont_exist
         with:
           registry: 'docker.io'
