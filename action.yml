@@ -1,0 +1,28 @@
+# action.yml
+name: 'Docker exist action'
+description: 'Check if docker image exist'
+inputs:
+  registry:
+    description: 'Container Registry'
+    required: true
+    default: 'docker.io'
+  username:
+    description: 'Container Registry Username'
+    required: true
+  password:
+    description: 'Container Registry Password'
+    required: true
+  image:
+    description: 'Image to check'
+    required: true
+outputs:
+  image_exist:
+    description: 'If image exist value is 0 else is 1'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    REGISTRY: ${{ inputs.registry }}
+    USERNAME: ${{ inputs.wusername }}
+    PASSWORD: ${{ inputs.password }}
+    IMAGE: ${{ inputs.image }}
