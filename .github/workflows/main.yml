@@ -1,0 +1,29 @@
+on: [push]
+
+jobs:
+  docker_exist_job:
+    runs-on: ubuntu-latest
+    name: Docker exist test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Docker exist action TRUE
+        uses: ./
+        id: exist
+        with:
+          registry: 'docker.io'
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          image: 'hello-world:latest'
+      - name: Get the output TRUE
+        run: echo "Image exist: ${{ steps.exist.outputs.image_exist }}"
+      - name: Docker exist action FALSE
+        uses: ./
+        id: dont_exist
+        with:
+          registry: 'docker.io'
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          image: 'hello-world:fake_tag'
+      - name: Get the output TRUE
+        run: echo "Image don't exist: ${{ steps.dont_exist.outputs.image_exist }}"
