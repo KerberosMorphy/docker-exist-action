@@ -4,7 +4,7 @@ This action check if an docker image already exist.
 
 ## Limitation
 
-This action use the experimental feature of Docker CLI `docker manifest inspect`. This feature doesn't work with docker.pkg.github.com registry at the moment.
+This action uses the experimental feature of Docker CLI `docker manifest inspect`. This feature doesn't work with docker.pkg.github.com registry at the moment.
 
 ## Inputs
 
